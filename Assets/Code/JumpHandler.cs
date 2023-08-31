@@ -12,12 +12,14 @@ namespace Code
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody.simulated = false;
         }
 
         private void Update()
         {
             if (Input.anyKeyDown || Input.touchCount > 0)
             {
+                _rigidbody.simulated = true;
                 Jump();
             }
         }

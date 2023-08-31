@@ -13,8 +13,13 @@ namespace Code
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out ColorCollision _))
-                _gameHandler.Win();
+            if (other.TryGetComponent(out JumpHandler jumpHandler) == false) return;
+            if (jumpHandler.TryGetComponent(out Rigidbody2D rb) == false) return;
+
+            jumpHandler.enabled = false;
+            rb.simulated = false;
+            
+            _gameHandler.Win();
         }
     }
 }
