@@ -7,6 +7,5 @@
         Yellow,
         Magenta,
         Pink,
-        Wild
     }
 }
